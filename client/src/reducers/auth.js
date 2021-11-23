@@ -44,6 +44,7 @@ function authReducer(state = initialState, action) {
         isAuthenticated: false,
         loading: false,
         user: null,
+        profile: null,
       };
     default:
       return state;
