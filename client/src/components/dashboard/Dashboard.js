@@ -22,7 +22,8 @@ const Dashboard = ({
     <section className="container">
       <h1 className="large text-primary">Dashboard</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Welcome {user && user.name}
+        <i className="fas fa-user" /> Welcome{" "}
+        {user && <Link to={`/profile/${user._id}`}>{user.name}</Link>}
       </p>
       {profile !== null ? (
         <>
