@@ -8,6 +8,7 @@ const axios = require("axios");
 
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const Post = require("../../models/Post");
 
 // @route  GET api/profile/me
 // @desc   Get current users profile
@@ -146,18 +147,23 @@ router.get("/user/:user_id", async (req, res) => {
   }
 });
 
-// @route  DELETE api/profile
-// @desc   Delete a profile/user/and any posts
-// @access Private
+// @route    DELETE api/profile
+// @desc     Delete profile, user & posts
+// @access   Private
 router.delete("/", auth, async (req, res) => {
   try {
-    //@todo - remove users posts
-    //Remove profile
-    await Profile.findOneAndRemove({ user: req.user.id });
-    await User.findOneAndRemove({ user: req.user.id });
-    res.json({ msg: "User removed" });
-  } catch (error) {
-    console.error(error.message);
+    // Remove user posts
+    // Remove profile
+    // Remove user
+    await Promise.all([
+      Post.deleteMany({ user: req.user.id }),
+      Profile.findOneAndRemove({ user: req.user.id }),
+      User.findOneAndRemove({ _id: req.user.id }),
+    ]);
+
+    res.json({ msg: "User deleted" });
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
