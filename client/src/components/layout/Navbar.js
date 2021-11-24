@@ -37,10 +37,16 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
         </Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <i className="fas fa-user-plus"></i>
+          <span className="hide-sm"> Register</span>
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">
+          <i className="fas fa-sign-in-alt"></i>
+          <span className="hide-sm"> Login</span>
+        </Link>
       </li>
     </ul>
   );
@@ -48,7 +54,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout }) => {
     <nav className="navbar bg-dark">
       <h1>
         <Link to="/">
-          <i className="fas fa-code"></i>DevConnector
+          <i className="fab fa-connectdevelop"></i> sudo-connect
         </Link>
       </h1>
       {!loading && (
