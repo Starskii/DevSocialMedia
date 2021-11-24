@@ -20,7 +20,7 @@ const Landing = ({ isAuthenticated }) => {
           <h1 className="x-large">sudo-connect</h1>
           <p className="lead">
             Giving technologists a platform to share their skills, sudo-connect
-            aims to bring developers with those that need them.
+            aims to bring developers to those who need them.
           </p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">
