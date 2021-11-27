@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteEducation } from "../../actions/profile";
 import formatDate from "../../utils/formatDate";
@@ -11,6 +12,16 @@ const Education = ({ education, deleteEducation }) => {
       <td className="hide-sm">{edu.degree}</td>
       <td>
         {formatDate(edu.from)} - {edu.to ? formatDate(edu.to) : "Now"}
+      </td>
+      <td>
+        <Link to={`/edit-education/${edu._id}`} className="btn btn-light">
+          <button
+            className="btn btn-light"
+            onClick={() => console.log(edu._id)}
+          >
+            Edit
+          </button>
+        </Link>
       </td>
       <td>
         <button

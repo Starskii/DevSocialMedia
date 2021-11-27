@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteExperience } from "../../actions/profile";
+import { Link } from "react-router-dom";
 import formatDate from "../../utils/formatDate";
 
 const Experience = ({ experience, deleteExperience }) => {
@@ -13,7 +14,9 @@ const Experience = ({ experience, deleteExperience }) => {
         {formatDate(exp.from)} - {exp.to ? formatDate(exp.to) : "Now"}
       </td>
       <td>
-        <button className="btn btn-light">Edit</button>
+        <Link to={`/edit-experience/${exp._id}`} className="btn btn-light">
+          <button className="btn btn-light">Edit</button>
+        </Link>
       </td>
       <td>
         <button

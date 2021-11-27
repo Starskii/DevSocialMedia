@@ -176,16 +176,37 @@ export const addEducation = (formData, navigate) => async (dispatch) => {
 };
 
 // Edit experience
-export const editExperience = (id) => async (dispatch) => {
+export const editExperience = (id, formData, navigate) => async (dispatch) => {
   try {
-    const res = await api.delete(`/profile/experience/${id}`);
+    const res = await api.put(`/profile/experience/${id}`, formData);
 
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,
     });
 
-    dispatch(setAlert("Experience Removed", "success"));
+    dispatch(setAlert("Modified Experience", "success"));
+    navigate("/dashboard");
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Edit Education
+export const editEducation = (id, formData, navigate) => async (dispatch) => {
+  try {
+    const res = await api.put(`/profile/education/${id}`, formData);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Modified Education", "success"));
+    navigate("/dashboard");
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
