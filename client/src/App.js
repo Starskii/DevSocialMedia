@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Router basename="/">
+      <Router>
         <Navbar />
         <Alert />
         <Routes>
