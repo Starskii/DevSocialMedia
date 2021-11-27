@@ -1,0 +1,7 @@
+{
+    "mongoURI": "mongodb+srv://brad123:brad123@cluster0.uvpmb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "Iv1.b101df9cb4e58368",
+    "githubSecret": "b5854cfbbc8d8f7233e57d48012598058ca8b7ef",
+    "githubToken": "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"
+}

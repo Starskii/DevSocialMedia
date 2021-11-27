@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/Starskii/DevSocialMedia/issues"
   },
-  "homepage": "https://github.com/Starskii/DevSocialMedia#readme",
+  "homepage": "https://awesome-app.vercel.app",
   "dependencies": {
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "concurrently": "^6.4.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "vercel": "^23.1.2"
   }
 }
